@@ -1,0 +1,42 @@
+/* Style first input field */
+input:first-of-type {
+  border-radius: 10px;
+}
+
+/* Focus pseudo-class */
+input:focus,
+textarea:focus {
+  border-color: blue;
+}
+
+/* Invalid pseudo-class */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border: 2px solid red;
+}
+
+/* Valid pseudo-class */
+input:valid,
+select:valid,
+textarea:valid {
+  border: 2px solid green;
+}
+
+/* Button hover */
+button:hover {
+  background-color: #ddd;
+}
+
+/* Radio selected styles */
+.radio-group input[type="radio"]:checked {
+  border: 2px solid blue;
+  background-color: #e0f0ff;
+  box-shadow: 0 0 5px blue;
+}
+
+/* Label color change when radio checked */
+.radio-group input[type="radio"]:checked + label,
+.radio-group label:has(input[type="radio"]:checked) {
+  color: blue;
+}
