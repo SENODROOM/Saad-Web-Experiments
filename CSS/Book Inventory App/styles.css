@@ -1,0 +1,92 @@
+ .table {
+     width: 100%;
+     border: none;
+     border-collapse: collapse;
+ }
+
+ .title {
+     width: 35%;
+ }
+
+ .author,
+ .category,
+ .status,
+ .rate1 {
+     width: 16.25%;
+ }
+
+ thead {
+     background-image: linear-gradient(to top, rgb(115, 211, 249), rgb(182, 232, 252));
+ }
+
+ tr {
+     height: 40px;
+ }
+
+ tr[class="read"] {
+     background-image: linear-gradient(to top, rgb(151, 255, 151), rgb(205, 255, 205));
+ }
+
+ tr[class="to-read"] {
+     background-image: linear-gradient(to top, rgb(212, 227, 212), rgb(241, 246, 241));
+ }
+
+ tr[class="in-progress"] {
+     background-image: linear-gradient(to top, rgb(255, 221, 153), rgb(255, 238, 203));
+ }
+
+ span {
+     display: inline-block;
+ }
+
+ tr[class="to-read"] span[class="status"] {
+     border: 1px solid rgb(230, 19, 0);
+     background-image: linear-gradient(to top, rgb(255, 23, 2), rgb(255, 126, 114));
+     margin: 5px;
+     border-radius: 10px;
+     text-align: center;
+ }
+
+ tr[class="read"] span[class="status"] {
+     border: 1px solid rgb(29, 201, 29);
+     background-image: linear-gradient(to top, rgb(37, 224, 37), rgb(138, 232, 138));
+     margin: 5px;
+     border-radius: 10px;
+     text-align: center;
+ }
+
+ tr[class="in-progress"] span[class="status"] {
+     border: 1px solid rgb(194, 133, 10);
+     background-image: linear-gradient(to top, rgb(242, 166, 14), rgb(248, 207, 124));
+     margin: 5px;
+     border-radius: 10px;
+     text-align: center;
+ }
+
+ span[class="status"],
+ span[class^="rate"] {
+     height: 80%;
+     width: 80%;
+     padding: 5px;
+ }
+
+ span[class^="rate"]>span {
+     border: 1px solid gray;
+     border-radius: 10px;
+     margin: 2px;
+     height: 10px;
+     width: 20%;
+     background-color: whitesmoke;
+ }
+
+ span[class~="one"] span:nth-child(1) {
+     background-image: linear-gradient(to right, #000, #000);
+ }
+
+ span[class~="two"] span:nth-child(-n+2) {
+     background-image: linear-gradient(to right, #000, #000);
+ }
+
+ span[class~="three"] span {
+     background-image: linear-gradient(to right, #000, #000);
+ }
