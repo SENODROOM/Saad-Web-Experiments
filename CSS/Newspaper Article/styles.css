@@ -1,0 +1,65 @@
+/* 1. Root font-size */
+html {
+  font-size: 24px;
+}
+
+/* 2–4. Newspaper container */
+.newspaper {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid black;
+  background: #fdfdfd;
+}
+
+/* 17–20. Name styling */
+.name {
+  font-size: 2rem;
+  font-family: 'Times New Roman', serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* 7–8. Date */
+.date {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 21–22. Headline */
+.headline {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 23–25. Sub-headline */
+.sub-headline {
+  font-weight: 100;
+  font-size: 1.5em;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+/* 20 & 26. Author styling */
+.author {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 27–30. Text paragraphs */
+.text {
+  text-indent: 20px;
+  line-height: 2em;
+  margin-bottom: 20px;
+}
+
+.text::first-letter {
+  font-weight: bold;
+  font-size: 2em;
+}
