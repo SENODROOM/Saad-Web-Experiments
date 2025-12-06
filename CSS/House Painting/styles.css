@@ -1,0 +1,55 @@
+/* styles.css */
+#house {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background-color: lightblue; /* any color */
+  border: 2px solid black;
+}
+
+/* Chimney */
+#chimney {
+  position: absolute;
+  top: -50px;           /* negative of its height */
+  left: 100px;          /* horizontal placement on house */
+  width: 20px;
+  height: 50px;
+  background-color: gray;
+  border: 2px solid black;
+  z-index: -1;          /* behind the roof */
+}
+
+/* Roof */
+#roof {
+  position: absolute;
+  top: 0;               /* at top of house */
+  left: 0;
+  width: 500px;
+  height: 100px;
+  background-color: brown;
+  border: 2px solid black;
+  /* (Roof can have a higher z-index or appear after chimney in HTML) */
+}
+
+/* Windows and Door (also required to pass other tests) */
+#window-1, #window-2 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: lightyellow;
+  border: 2px solid black;
+  /* Example positions for windows */
+  top: 150px;
+}
+#window-1 { left: 80px; }
+#window-2 { right: 80px; }
+
+#door {
+  position: absolute;
+  bottom: 0;
+  left: 210px;
+  width: 80px;
+  height: 150px;
+  background-color: sienna;
+  border: 2px solid black;
+}
