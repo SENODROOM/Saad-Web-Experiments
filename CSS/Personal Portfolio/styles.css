@@ -39,7 +39,6 @@
   margin-bottom: 20px;
 }
 
-/* REQUIRED MEDIA QUERY */
 @media (max-width: 600px) {
   #welcome-section h1 {
     font-size: 1.8rem;
