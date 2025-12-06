@@ -1,0 +1,56 @@
+:root {
+  --color0: #f7f7f7;
+  --color1: #c7e9c0;
+  --color2: #74c476;
+  --color3: #31a354;
+  --color4: #006d2c;
+  --color5: #00441b;
+
+  --solid-border: 3px solid black;
+  --dashed-border: 3px dashed black;
+}
+
+table, th, td {
+  border: 1px solid #444;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Availability colors EXACT syntax */
+.available-0 { background-color: var(--color0); }
+.available-1 { background-color: var(--color1); }
+.available-2 { background-color: var(--color2); }
+.available-3 { background-color: var(--color3); }
+.available-4 { background-color: var(--color4); }
+.available-5 { background-color: var(--color5); }
+
+/* Row border styles */
+.sharp td {
+  border-bottom: var(--solid-border);
+}
+
+.half td {
+  border-bottom: var(--dashed-border);
+}
+
+/* Legend */
+#legend {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#legend-gradient {
+  background-image: linear-gradient(to right,
+    var(--color0) 0% 20%,
+    var(--color1) 20% 40%,
+    var(--color2) 40% 60%,
+    var(--color3) 60% 80%,
+    var(--color4) 80% 90%,
+    var(--color5) 90% 100%
+  );
+}
+
