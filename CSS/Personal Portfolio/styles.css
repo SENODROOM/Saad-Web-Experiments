@@ -1,0 +1,47 @@
+/* NAVBAR ALWAYS AT TOP */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  padding: 15px;
+}
+
+#navbar a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+/* WELCOME SECTION FULL HEIGHT */
+#welcome-section {
+  height: 100vh;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome-section h1 {
+  font-size: 2.5rem;
+}
+
+/* PROJECTS SECTION */
+#project-section {
+  padding: 80px 20px;
+  margin-top: 50px;
+}
+
+.project-tile {
+  background: lightgray;
+  padding: 20px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/* REQUIRED MEDIA QUERY */
+@media (max-width: 600px) {
+  #welcome-section h1 {
+    font-size: 1.8rem;
+  }
+}
