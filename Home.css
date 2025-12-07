@@ -80,7 +80,7 @@ body {
   padding: 6px 12px;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
@@ -159,10 +159,9 @@ body {
 }
 
 .preview {
-  background: linear-gradient(180deg, var(--blue-100), white);
   border-radius: 10px;
   padding: 8px;
-  border: 1px solid rgba(10, 30, 60, 0.04);
+  border: 1px solid var(--blue-100);
 }
 
 .preview iframe {
