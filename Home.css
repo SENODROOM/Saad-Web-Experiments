@@ -17,6 +17,36 @@
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-600) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      var(--blue-600),
+      var(--blue-500));
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+      var(--blue-700),
+      var(--blue-600));
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 html,
@@ -265,6 +295,10 @@ body.dark {
   --border: #1f2a44;
 
   background: linear-gradient(180deg, #0b1220, #0e1628 60%);
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1f3a5f, #2563eb);
 }
 
 /* Cards in dark mode */
