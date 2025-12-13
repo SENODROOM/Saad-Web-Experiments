@@ -30,8 +30,20 @@
         </div>
     </header>
 
-    <main class="container grid" id="project-container">
-        <!-- Cards will be dynamically generated here -->
+    <main class="container grid">
+        <div class="center">
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-input" placeholder="Search projects..." />
+            </div>
+        </div>
+        <div id="project-container">
+            <!-- Cards will be dynamically generated here -->
+        </div>
     </main>
 
     <footer class="site-footer">
@@ -40,6 +52,24 @@
         </div>
     </footer>
 
+    <script>
+        const searchInput = document.getElementById('search-input');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+
+            // Filter all project cards
+            document.querySelectorAll('.card').forEach(card => {
+                const title = card.querySelector('.summary-title').textContent.toLowerCase();
+                const category = card.querySelector('.summary-meta').textContent.toLowerCase();
+                if (title.includes(query) || category.includes(query)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script type="module">
         import { projects } from './projects.js';
         function ProjectCard({ title, category, description, iframeSrc }) {

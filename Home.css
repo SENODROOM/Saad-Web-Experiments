@@ -114,6 +114,12 @@ body {
   display: flex;
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   background: white;
   border-radius: var(--card-radius);
@@ -343,5 +349,47 @@ body.dark .theme-toggle {
 
 .theme-toggle:focus,
 .theme-toggle:focus-visible {
+  outline: none;
+}
+
+
+.search-bar {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+svg{
+  color: var(--blue-800);
+  font-size: 0.8rem;
+}
+
+.search-bar:focus-within {
+  border-bottom-color: var(--blue-500);
+}
+
+#search-input {
+  width: 100%;
+  max-width: 400px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  outline: none;
+  padding: 8px 7px;
+  font-size: 1rem;
+  color: var(--blue-800);
+  /* border-radius: 8px; */
+}
+
+#search-input::placeholder{
+  color: var(--blue-800);
+}
+
+#search-input:focus {
   outline: none;
 }
