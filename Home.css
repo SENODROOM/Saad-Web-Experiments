@@ -229,6 +229,7 @@ body {
   color: var(--muted);
   font-size: 14px;
 }
+
 /* 
 summary:focus,
 .btn:focus,
@@ -245,3 +246,68 @@ a:focus {
 /* .card details[open] {
   border-top: 1px solid rgba(10, 30, 60, 0.02);
 } */
+
+/* ===== Header Layout ===== */
+.header-row {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ===== Dark Mode Variables ===== */
+body.dark {
+  --bg: #0b1220;
+  --blue-900: #e6f2ff;
+  --blue-800: #cfe8ff;
+  --muted: #9ca3af;
+  --border: #1f2a44;
+
+  background: linear-gradient(180deg, #0b1220, #0e1628 60%);
+}
+
+/* Cards in dark mode */
+body.dark .card {
+  background: #0f1b33;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .preview {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .btn-outline {
+  color: #e6f2ff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== Toggle Button ===== */
+.theme-toggle {
+  background: linear-gradient(180deg, var(--blue-600), var(--blue-500));
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(46, 163, 214, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) rotate(6deg);
+  box-shadow: 0 12px 28px rgba(46, 163, 214, 0.35);
+}
+
+body.dark .theme-toggle {
+  background: linear-gradient(180deg, #111827, #1f2937);
+}
+
+.theme-toggle:focus,
+.theme-toggle:focus-visible {
+  outline: none;
+}
