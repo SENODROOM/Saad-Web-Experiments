@@ -354,13 +354,14 @@ body.dark .theme-toggle {
 
 
 .search-bar {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 400px;
   border: 1px solid transparent;
+  border-bottom-color: var(--muted);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
