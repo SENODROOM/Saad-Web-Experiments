@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <!-- Shopping Cart Container -->
+    <div id="shopping-cart-container" class="flex flex-col lg:flex-row gap-8">
+
+        <!-- Products Container -->
+        <div id="products-container" class="flex-1 flex flex-col gap-4">
+
+            <!-- Product Card 1 -->
+            <div class="card bg-white p-4 rounded shadow flex flex-col gap-2">
+                <h2 class="text-xl font-semibold">Album A</h2>
+                <div class="quantity">Quantity: 2</div>
+                <div class="price">$19.98</div>
+                <button class="remove-button bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+                    Remove
+                </button>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="card bg-white p-4 rounded shadow flex flex-col gap-2">
+                <h2 class="text-xl font-semibold">Album B</h2>
+                <div class="quantity">Quantity: 1</div>
+                <div class="price">$9.99</div>
+                <button class="remove-button bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+                    Remove
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Order Summary Container -->
+        <div id="order-summary-container"
+            class="w-full lg:w-1/3 bg-white rounded-lg border border-gray-300 p-6 flex flex-col gap-4">
+            <h2 class="text-2xl font-bold">Order Summary</h2>
+            <div id="total" class="font-semibold text-lg">Total:</div>
+            <div id="total-amount">$29.97</div>
+            <a href="#" class="text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold">
+                Checkout
+            </a>
+        </div>
+
+    </div>
+</body>
+
+</html>
