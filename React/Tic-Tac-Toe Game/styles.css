@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 6px;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #334155;
+    background: #ffffff;
+}
+
+.square:disabled {
+    cursor: default;
+}
+
+.status {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#reset {
+    padding: 8px 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
