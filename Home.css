@@ -114,7 +114,7 @@ body {
   display: flex;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,10 +147,6 @@ body {
   user-select: none;
   outline: none;
 }
-
-/* .card details[open] summary {
-  border-bottom: 1px dashed rgba(10, 30, 60, 0.06);
-} */
 
 .summary-title {
   font-weight: 600;
@@ -365,7 +361,7 @@ body.dark .theme-toggle {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-svg{
+svg {
   color: var(--blue-800);
   font-size: 0.8rem;
 }
@@ -387,7 +383,7 @@ svg{
   /* border-radius: 8px; */
 }
 
-#search-input::placeholder{
+#search-input::placeholder {
   color: var(--blue-800);
 }
 
