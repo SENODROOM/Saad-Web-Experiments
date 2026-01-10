@@ -1,0 +1,23 @@
+.tabs [role="tablist"] {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+[role="tab"] {
+  padding: 0.5rem 1rem;
+  background: #eee;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+[role="tab"][aria-selected="true"] {
+  background: #fff;
+  border-bottom: 2px solid dodgerblue;
+}
+
+[role="tabpanel"] {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
