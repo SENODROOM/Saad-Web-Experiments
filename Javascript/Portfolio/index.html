@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="name">
+            <span class="styled">Muhammad Saad Amin</span>
+        </div>
+        <nav>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#projects" class="nav-item">Project Details</a>
+            <a href="#skills" class="nav-item">Skills</a>
+            <a href="#recommendations" class="nav-item">Recommendations</a>
+        </nav>
+        <div class="home">
+            <i class="fa-solid fa-house"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+            <div class="profile-img">
+                <img src="20251020_175953.jpg" alt="Profile Image">
+            </div>
+            <div class="about-text">
+                <h2>Muhammad Saad Amin</h2>
+                <p>
+                    I am a Full Stack Web Developer currently pursuing BS Software Engineering at FAST NUCES Lahore.
+                    I have experience building real-world MERN/PERN applications including MD Pharmacy and Canvas
+                    Market.
+                    I also have strong C++ OOP skills and built a Cryptocurrency Exchange Platform during my OOP
+                    specialization.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section projects">
+            <h2>Project Details</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>MD Pharmacy</h3>
+                    <p>Full-stack pharmacy management system with admin panel, inventory, and cloud deployment.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Canvas Market</h3>
+                    <p>A platform for buying and selling paintings with a modern UI and responsive design.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Cryptocurrency Exchange Platform</h3>
+                    <p>OOP C++ based exchange system built during OOP specialization with full functionality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <i class="fa-brands fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-react"></i>
+                    <span>React</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-node"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <span>CSS</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-docker"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-database"></i>
+                    <span>MongoDB</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECOMMENDATIONS -->
+        <section id="recommendations" class="section recommendations">
+            <h2>Recommendations</h2>
+            <div class="recommendation-grid" id="recList">
+                <div class="rec-card">
+                    <h3>Mr. Ali</h3>
+                    <p>Saad is a strong web developer with amazing problem-solving skills and dedication.</p>
+                </div>
+                <div class="rec-card">
+                    <h3>Ms. Sara</h3>
+                    <p>He always delivers projects on time with clean code and excellent UI design.</p>
+                </div>
+                <div class="rec-card">
+                    <h3>Mr. Ahmed</h3>
+                    <p>Saad is a quick learner and a team player with strong backend development skills.</p>
+                </div>
+            </div>
+
+            <div class="rec-form">
+                <input type="text" id="recName" placeholder="Your Name">
+                <textarea id="recText" placeholder="Write your recommendation"></textarea>
+                <button onclick="addRecommendation()">Submit Recommendation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

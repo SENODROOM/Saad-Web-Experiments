@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.name .styled {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+    font-weight: 700;
+    color: #000;
+}
+
+.home i {
+    font-size: 24px;
+    color: #333;
+}
+
+.section {
+    padding: 60px;
+    text-align: center;
+}
+
+.about {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.project-grid,
+.skills-grid,
+.recommendation-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card,
+.skill,
+.rec-card {
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.skill {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill i {
+    font-size: 30px;
+}
+
+.rec-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.rec-form input,
+.rec-form textarea {
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.rec-form button {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
