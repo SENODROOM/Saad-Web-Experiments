@@ -1,0 +1,41 @@
+{
+  "name": "saad-web-experiments",
+  "version": "3.0.0",
+  "description": "A comprehensive portfolio showcasing 150+ web development projects",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev\"",
+    "build": "npm run build --workspace=frontend",
+    "start": "npm run start --workspace=frontend",
+    "install:all": "npm install && npm install --workspace=frontend && npm install --workspace=backend",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules frontend/.next"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "mongodb",
+    "express"
+  ],
+  "author": {
+    "name": "Muhammad Saad Amin",
+    "url": "https://github.com/SENODROOM"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SENODROOM/Responsive-Web-Design-Certification.git"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --fix",
+    "*.{json,md,css}": "prettier --write"
+  }
+}
