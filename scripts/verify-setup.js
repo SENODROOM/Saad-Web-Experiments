@@ -185,7 +185,8 @@ async function main() {
   // Summary
   log("\n" + "=".repeat(50), "cyan");
   const percentage = ((passedChecks / totalChecks) * 100).toFixed(1);
-  const summaryColor = percentage === "100.0" ? "green" : percentage >= "80.0" ? "yellow" : "red";
+  const summaryColor =
+    percentage === "100.0" ? "green" : percentage >= "80.0" ? "yellow" : "red";
 
   log(`\n📊 Verification Summary:`, "cyan");
   log(`   Total Checks: ${totalChecks}`, "blue");
@@ -201,7 +202,10 @@ async function main() {
     log("  3. npm run build", "blue");
     log("  4. Deploy to your favorite platform\n", "blue");
   } else {
-    log("\n⚠️  Some checks failed. Please review the missing files above.\n", "yellow");
+    log(
+      "\n⚠️  Some checks failed. Please review the missing files above.\n",
+      "yellow"
+    );
   }
 
   process.exit(passedChecks === totalChecks ? 0 : 1);

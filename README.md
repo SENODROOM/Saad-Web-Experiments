@@ -2,10 +2,17 @@
 
 > A comprehensive, interactive portfolio showcasing 165 web development projects with advanced features including search, filtering, bookmarks, analytics, and more.
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://reactjs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live-muhammad--saad--amin.vercel.app-blue?style=flat-square&logo=vercel)](https://muhammad-saad-amin.vercel.app)
+
+---
+
+## 🌐 Live Demo
+
+**[muhammad-saad-amin.vercel.app](https://muhammad-saad-amin.vercel.app)**
 
 ---
 
@@ -14,13 +21,16 @@
 - [Features](#-features)
 - [Quick Start](#-quick-start)
 - [Project Structure](#-project-structure)
+- [Architecture](#-architecture)
 - [Project Breakdown](#-project-breakdown)
+- [React Projects](#-react-projects)
 - [Keyboard Shortcuts](#️-keyboard-shortcuts)
 - [Analytics](#-analytics)
 - [Technology Stack](#-technology-stack)
 - [Deployment](#-deployment)
 - [Adding Projects](#-adding-new-projects)
 - [Environment Variables](#-environment-variables)
+- [Testing](#-testing)
 - [Troubleshooting](#-troubleshooting)
 - [License](#-license)
 
@@ -30,7 +40,7 @@
 
 ### Core Features
 
-- 🔍 **Smart Search** - Real-time search across all projects with instant results
+- 🔍 **Smart Search** - Real-time fuzzy search across all projects with instant results
 - 🏷️ **Category Filters** - Filter by HTML, CSS, JavaScript, Python, React
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - 🌙 **Dark Mode** - Seamless light/dark theme toggle with persistence
@@ -45,6 +55,7 @@
 - 📋 **One-Click Copy** - Copy code to clipboard instantly
 - 📂 **Multi-File Support** - View multiple files per project with tabs
 - 🎯 **Live Preview** - Interactive iframe previews for web projects
+- ⚛️ **React Projects** - All React experiments fully bundled and live-previewed via iframe
 
 ---
 
@@ -58,8 +69,9 @@
 ### Frontend Setup
 
 ```bash
-# Navigate to frontend directory
-cd frontend
+# Clone the repository
+git clone https://github.com/SENODROOM/Responsive-Web-Design-Certification.git
+cd Responsive-Web-Design-Certification/frontend
 
 # Install dependencies
 npm install
@@ -72,7 +84,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Backend Setup (Optional)
 
-The backend provides API endpoints for persistent bookmarks and analytics.
+The backend provides API endpoints for persistent bookmarks and analytics. The frontend works fully without it using localStorage.
 
 ```bash
 # Navigate to backend directory
@@ -93,6 +105,13 @@ npm run dev
 
 Backend runs on [http://localhost:5000](http://localhost:5000)
 
+### Run Everything Together
+
+```bash
+# From repo root — starts both frontend and backend concurrently
+npm run dev:all
+```
+
 ---
 
 ## 📁 Project Structure
@@ -101,35 +120,85 @@ Backend runs on [http://localhost:5000](http://localhost:5000)
 saad-web-experiments/
 ├── frontend/                    # Next.js Application
 │   ├── app/
-│   │   ├── page.tsx            # Main portfolio page (all features)
+│   │   ├── page.tsx            # Main portfolio page
 │   │   ├── layout.tsx          # Root layout
-│   │   ├── globals.css         # Global styles + modals
-│   │   └── api/                # API routes (optional)
+│   │   ├── globals.css         # Global styles
+│   │   └── api/                # Next.js API routes (proxy to backend)
+│   │       ├── analytics/
+│   │       └── bookmarks/
 │   ├── public/
-│   │   ├── projects.js         # 165 projects data
+│   │   ├── projects.js         # 165 projects data registry
 │   │   ├── Home.css            # Portfolio styles
 │   │   ├── HTML/               # 22 HTML projects
 │   │   ├── CSS/                # 35+ CSS projects
 │   │   ├── Javascript/         # 60+ JavaScript projects
-│   │   ├── React/              # 13 React projects
+│   │   ├── React/              # 13 React projects (pre-built, iframe-ready)
 │   │   ├── Python/             # 32+ Python projects
 │   │   └── Images/             # Assets
+│   ├── src/
+│   │   ├── components/         # Reusable UI components
+│   │   ├── lib/                # Frontend utilities (analytics, storage, search)
+│   │   ├── models/             # TypeScript types for API responses
+│   │   └── types/              # Shared TypeScript interfaces
 │   └── package.json
 ├── backend/                     # Express.js API (Optional)
 │   ├── src/
-│   │   ├── models/             # MongoDB models
+│   │   ├── config/env.js       # Environment loader
+│   │   ├── lib/mongodb.js      # MongoDB connection (single source of truth)
+│   │   ├── models/             # Mongoose models
 │   │   │   ├── Analytics.js
 │   │   │   └── Bookmark.js
-│   │   ├── routes/             # API routes
-│   │   ├── lib/                # Utilities
+│   │   ├── routes/             # Express route handlers
+│   │   │   ├── analytics.js
+│   │   │   └── bookmarks.js
 │   │   └── server.js           # Entry point
-│   ├── .env                    # Environment variables
+│   ├── .env.example            # Environment template (never commit .env)
 │   └── package.json
 ├── docs/                        # Documentation
-├── README.md                    # This file
-├── LICENSE                      # MIT License
-└── package.json                 # Root workspace
+├── tests/                       # Root-level JS/TS tests (Vitest)
+│   ├── setup.js
+│   ├── utils.test.js
+│   ├── fuzzySearch.test.js
+│   ├── storage.test.js
+│   └── analytics.test.js
+├── scripts/                     # Dev utilities
+│   ├── generate-projects.js
+│   └── verify-setup.js
+├── README.md
+├── LICENSE
+└── package.json                 # Root npm workspace
 ```
+
+---
+
+## 🏗️ Architecture
+
+The project is a **monorepo** with two independent packages managed via npm workspaces.
+
+### Frontend (Next.js)
+
+The frontend is the only required component. It is a self-contained Next.js 15 app deployed to Vercel. All core features — search, bookmarks, analytics, dark mode — work client-side via `localStorage`. No backend required for the live demo.
+
+MongoDB logic lives **exclusively in `backend/src/lib/mongodb.js`**. The file `frontend/src/lib/mongodb.ts` exists only as a thin TypeScript type/client adapter for Next.js API routes that optionally proxy to the backend — it does **not** run its own database connection. If you do not use the backend, those API routes are simply unused.
+
+### Backend (Express.js — Optional)
+
+The backend is an optional Express.js server that persists bookmarks and analytics to MongoDB Atlas. It is a separate deployable unit (Railway, Render, or Heroku recommended). The frontend detects whether `NEXT_PUBLIC_API_URL` is set and falls back to localStorage if the backend is unavailable.
+
+### Data Flow
+
+```
+Browser
+  └── Next.js Frontend (Vercel)
+        ├── localStorage  ← bookmarks & analytics (default, always works)
+        └── NEXT_PUBLIC_API_URL (optional)
+              └── Express Backend
+                    └── MongoDB Atlas
+```
+
+### Why No MongoDB in the Frontend Source
+
+`frontend/src/models/Analytics.ts` and `frontend/src/models/Bookmark.ts` are **TypeScript interface files** — they define the shape of API responses. They contain no Mongoose imports and run no database logic. They exist so the Next.js API route handlers are fully typed.
 
 ---
 
@@ -146,6 +215,29 @@ saad-web-experiments/
 
 ---
 
+## ⚛️ React Projects
+
+All 13 React experiments are fully functional and live-previewable directly in the portfolio. They are served as pre-built static HTML files from `frontend/public/React/`, so no separate bundler or dev server is needed to view them.
+
+| Project                     | Features                     |
+| --------------------------- | ---------------------------- |
+| Color Picker App            | useState, dynamic styling    |
+| Currency Converter          | useEffect, API data fetching |
+| Event RSVP                  | Forms, controlled inputs     |
+| Fruit Search App            | Real-time filtering          |
+| Mood Board                  | Drag-and-drop state          |
+| One-Time Password Generator | Crypto randomness, clipboard |
+| Reusable Footer             | Component composition        |
+| Reusable Mega Navbar        | Responsive navigation        |
+| Reusable Profile Card       | Props, conditional rendering |
+| Shopping List App           | CRUD with useState           |
+| Tic-Tac-Toe Game            | Game logic, lifting state up |
+| Toggle Text App             | Boolean state toggling       |
+
+Each project's source (`.jsx`, `.html`, `.css`) is viewable with syntax highlighting in the portfolio's code panel, and the live preview loads instantly in the iframe.
+
+---
+
 ## ⌨️ Keyboard Shortcuts
 
 | Shortcut       | Action                   |
@@ -154,6 +246,8 @@ saad-web-experiments/
 | `Escape`       | Clear search             |
 | `Ctrl+D`       | Toggle dark mode         |
 | `Ctrl+Shift+A` | View analytics dashboard |
+| `Ctrl+B`       | View bookmarks           |
+| `Shift+?`      | Show keyboard help       |
 
 ---
 
@@ -184,15 +278,15 @@ Press: Ctrl+Shift+A
 
 ### What Gets Tracked
 
-- 📈 **Project Views** - Which projects you opened and how many times
-- 🔍 **Search Queries** - What you searched for with timestamps
-- 🏷️ **Filter Usage** - Which categories you filtered
-- ⭐ **Bookmarks** - Your saved favorite projects
+- 📈 **Project Views** — Which projects you opened and how many times
+- 🔍 **Search Queries** — What you searched for with timestamps
+- 🏷️ **Filter Usage** — Which categories you filtered
+- ⭐ **Bookmarks** — Your saved favourite projects
 
 ### Data Privacy
 
-- ✅ All data stored locally in browser (localStorage)
-- ✅ No data sent to external servers
+- ✅ All data stored locally in browser (`localStorage`)
+- ✅ No data sent to external servers unless backend is configured
 - ✅ Private to your browser only
 - ✅ Clear browser data to reset analytics
 
@@ -204,7 +298,7 @@ Press: Ctrl+Shift+A
 
 | Technology | Version | Purpose                    |
 | ---------- | ------- | -------------------------- |
-| Next.js    | 16      | React framework with SSR   |
+| Next.js    | 15      | React framework with SSR   |
 | React      | 19      | UI library                 |
 | TypeScript | 5.0     | Type safety                |
 | Prism.js   | 1.29    | Syntax highlighting        |
@@ -223,7 +317,11 @@ Press: Ctrl+Shift+A
 
 ## 🌐 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy Frontend to Vercel (Recommended)
+
+The live site is deployed at **[muhammad-saad-amin.vercel.app](https://muhammad-saad-amin.vercel.app)**.
+
+To deploy your own fork:
 
 1. **Install Vercel CLI**
 
@@ -242,18 +340,56 @@ Press: Ctrl+Shift+A
    - Output Directory: `frontend/.next`
    - Install Command: `cd frontend && npm install`
 
-4. **Set Environment Variables** (if using backend)
-   - `NEXT_PUBLIC_API_URL` - Your backend URL
-   - `MONGODB_URI` - MongoDB connection string
+4. **Set Environment Variables** (only if using backend)
+   - `NEXT_PUBLIC_API_URL` — Your backend URL
 
 ### Deploy Backend
 
 Deploy backend separately to:
 
-- **Vercel** (Serverless Functions)
 - **Railway** (Recommended for MongoDB apps)
 - **Render** (Free tier available)
+- **Vercel** (Serverless Functions)
 - **Heroku** (With MongoDB Atlas)
+
+Set these environment variables on your backend host:
+
+```env
+MONGODB_URI=mongodb+srv://...
+PORT=5000
+NODE_ENV=production
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm run test
+
+# Run with coverage report
+npm run test:coverage
+
+# Watch mode
+npm run test:ui
+```
+
+### Test Coverage
+
+| Module                | Tests                                     |
+| --------------------- | ----------------------------------------- |
+| `utils.test.js`       | `filterProjects`, `searchProjects`        |
+| `fuzzySearch.test.js` | Levenshtein search, threshold, edge cases |
+| `storage.test.js`     | localStorage wrapper, get/set/remove      |
+| `analytics.test.js`   | Event tracking, session data, summaries   |
+
+Python tests live in `frontend/public/Python/tests/` and can be run with:
+
+```bash
+cd frontend/public/Python
+python -m pytest tests/
+```
 
 ---
 
@@ -297,22 +433,14 @@ Edit `frontend/public/projects.js` and add your project:
 | `description` | string | Yes      | Brief project description                         |
 | `codeFiles`   | array  | Yes      | Array of file objects                             |
 
-### Code File Object
-
-| Property | Type   | Required | Description                                  |
-| -------- | ------ | -------- | -------------------------------------------- |
-| `name`   | string | Yes      | Display name (e.g., "index.html")            |
-| `src`    | string | Yes      | Path to file                                 |
-| `lang`   | string | Yes      | "html", "css", "javascript", "python", "jsx" |
-
 ---
 
 ## 🔐 Environment Variables
 
-### Frontend (`frontend/.env`)
+### Frontend (`frontend/.env.local`)
 
 ```env
-# Backend API URL (optional)
+# Backend API URL (optional — omit to use localStorage only)
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
@@ -330,6 +458,8 @@ MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
 CORS_ORIGIN=http://localhost:3000
 ```
 
+> ⚠️ **Never commit `.env` files.** Use `.env.example` as a template and keep real credentials out of version control.
+
 ---
 
 ## 🐛 Troubleshooting
@@ -343,55 +473,39 @@ CORS_ORIGIN=http://localhost:3000
 ls frontend/public/projects.js
 
 # Restart dev server
-cd frontend
-npm run dev
+cd frontend && npm run dev
 ```
 
 **Build errors?**
 
 ```bash
 # Clear Next.js cache
-cd frontend
-rm -rf .next
-npm run build
+cd frontend && rm -rf .next && npm run build
 ```
 
 ### Backend Issues
 
 **MongoDB connection failed?**
 
-```bash
-# Verify MongoDB URI in backend/.env
-# Ensure IP is whitelisted in MongoDB Atlas
-# Check network connectivity
-```
+- Verify `MONGODB_URI` in `backend/.env`
+- Ensure your IP is whitelisted in MongoDB Atlas
+- Always run the backend from its own directory: `cd backend && npm run dev`
 
 **Port already in use?**
 
 ```bash
-# Kill process on port 5000
 npx kill-port 5000
-
-# Or use different port
+# or
 PORT=5001 npm run dev
 ```
 
 ### Common Issues
 
-**Double scrollbar?**
+**Double scrollbar?** — Clear browser cache and reload.
 
-- Fixed in latest version
-- Clear browser cache and reload
+**Dark mode not persisting?** — Ensure `localStorage` is enabled in your browser.
 
-**Dark mode not persisting?**
-
-- Check browser localStorage is enabled
-- Clear site data and try again
-
-**Analytics not showing?**
-
-- Press `Ctrl+Shift+A` or type `showAnalytics()` in console
-- Ensure localStorage is enabled
+**Analytics not showing?** — Press `Ctrl+Shift+A` or type `showAnalytics()` in the console.
 
 ---
 
@@ -400,6 +514,7 @@ PORT=5001 npm run dev
 - [Backend API Documentation](backend/README.md)
 - [Architecture Documentation](docs/ARCHITECTURE.md)
 - [API Reference](docs/API.md)
+- [Deployment Guide](docs/DEPLOYMENT.md)
 
 ---
 
@@ -417,7 +532,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -426,18 +541,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Muhammad Saad Amin**  
 Software Engineer | Web Developer
 
-- Portfolio: [Your Portfolio URL]
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- 🌐 Portfolio: [muhammad-saad-amin.vercel.app](https://muhammad-saad-amin.vercel.app)
+- 🐙 GitHub: [@SENODROOM](https://github.com/SENODROOM)
 
 ---
 
 ## 🌟 Acknowledgments
 
-- [Free Code Camp](https://www.freecodecamp.org/) - For the amazing curriculum
-- [Next.js](https://nextjs.org/) - The React framework
-- [Prism.js](https://prismjs.com/) - Syntax highlighting
-- [Vercel](https://vercel.com/) - Deployment platform
+- [freeCodeCamp](https://www.freecodecamp.org/) — For the amazing curriculum
+- [Next.js](https://nextjs.org/) — The React framework
+- [Prism.js](https://prismjs.com/) — Syntax highlighting
+- [Vercel](https://vercel.com/) — Deployment platform
 
 ---
 
@@ -447,7 +561,7 @@ Software Engineer | Web Developer
 - **Lines of Code**: 50,000+
 - **Technologies**: 5+ languages
 - **Features**: 15+ advanced features
-- **Status**: ✅ Production Ready
+- **Status**: ✅ Production Ready — [Live at muhammad-saad-amin.vercel.app](https://muhammad-saad-amin.vercel.app)
 
 ---
 
@@ -455,6 +569,6 @@ Software Engineer | Web Developer
 
 **[⬆ Back to Top](#-saad-web-experiments---portfolio)**
 
-Made with ❤️ by Muhammad Saad Amin
+Made with ❤️ by [Muhammad Saad Amin](https://github.com/SENODROOM)
 
 </div>
