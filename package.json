@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "eslint": "^10.1.0",
+    "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-html": "^8.1.4",
     "eslint-plugin-react": "^7.37.5",
