@@ -32,7 +32,7 @@
     "url": "https://github.com/SENODROOM/Responsive-Web-Design-Certification.git"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
+    "concurrently": "^10.0.4",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-html": "^8.1.4",
